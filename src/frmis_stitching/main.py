@@ -39,19 +39,6 @@ def main():
         'BLEND': args.blend,
     }
 
-    # config = {
-    #     "DATASET_DIR": "/home/mimd/FRMIS-Python/data/stitch-sardana-labs-20x-5x5",
-    #     'OUTPUT_PATH': "/home/mimd/FRMIS-Python/data/img-mosiac-sardana-labs-20x-5x5.png",
-    #     'MOSAIC_HEIGHT': 5,
-    #     'MOSAIC_WIDTH': 5,
-    #     'IMAGE_HEIGHT': 3040,
-    #     'IMAGE_WIDTH': 4056,
-    #     'IMAGE_CHANNELS': 3,
-    #     'OVERLAP_X': 2000,
-    #     'OVERLAP_Y': 1500,
-    #     'BLEND': "linear",
-    # }
-
     start_time = time.time()
     FRMIS(config).run()
     end_time = time.time()
