@@ -18,7 +18,7 @@ A command-line tool for stitching a grid of images into a single, seamless mosai
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/FRMIS-Python.git
+    git clone https://github.com/mohdsinad/FRMIS-Python.git
     cd FRMIS-Python
     ```
 
