@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
@@ -12,19 +12,14 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/mohdsinad/FRMIS-Python',
-    py_modules=[
-        "main",
-        "stitch",
-        "pairwise_alignment",
-        "global_alignment",
-    ],
+    packages=find_packages(where='src'),
     package_dir={"": "src"},
     install_requires=requirements,
     entry_points={
-        'console_scripts': [
-            'frmis-stitch=main:main',
-        ],
-    },
+            'console_scripts': [
+                'frmis-stitch=frmis_stitching.main:main', # <-- MUST CHANGE
+            ],
+        },
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License', # Choose an appropriate license

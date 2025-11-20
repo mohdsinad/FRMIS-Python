@@ -21,8 +21,8 @@ import time
 import numpy as np
 
 from natsort import natsorted
-from src.pairwise_alignment import Pairwise_Alignment
-from src.global_alignment import Global_Alignment
+from frmis_stitching.pairwise_alignment import Pairwise_Alignment
+from frmis_stitching.global_alignment import Global_Alignment
 
 
 class FRMIS():
@@ -61,16 +61,16 @@ class FRMIS():
                 - OVERLAP_Y: Expected vertical overlap between images in pixels
                 - BLEND: Blending method for final assembly ('overlay', 'linear', etc.)
         """
-        self.dataset_dir = args.DATASET_DIR
-        self.output_path = args.OUTPUT_PATH
-        self.grid_height = args.MOSAIC_HEIGHT
-        self.grid_width = args.MOSAIC_WIDTH
-        self.image_height = args.IMAGE_HEIGHT
-        self.image_width = args.IMAGE_WIDTH
-        self.image_channels = args.IMAGE_CHANNELS
-        self.overlap_x = args.OVERLAP_X
-        self.overlap_y = args.OVERLAP_Y
-        self.blend_method = args.BLEND
+        self.dataset_dir = args['DATASET_DIR']
+        self.output_path = args['OUTPUT_PATH']
+        self.grid_height = args['MOSAIC_HEIGHT']
+        self.grid_width = args['MOSAIC_WIDTH']
+        self.image_height = args['IMAGE_HEIGHT']
+        self.image_width = args['IMAGE_WIDTH']
+        self.image_channels = args['IMAGE_CHANNELS']
+        self.overlap_x = args['OVERLAP_X']
+        self.overlap_y = args['OVERLAP_Y']
+        self.blend_method = args['BLEND']
 
     def _create_grid(self):
         """
