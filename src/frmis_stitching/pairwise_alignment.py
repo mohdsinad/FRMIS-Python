@@ -105,9 +105,6 @@ def run_alignment_task(task):
     if image_1 is None or image_2 is None:
         return None
 
-    image_1 = cv2.resize(image_1, (1280, 720), interpolation=cv2.INTER_AREA)
-    image_2 = cv2.resize(image_2, (1280, 720), interpolation=cv2.INTER_AREA)
-
     if task_type == 'north':
         # ROI setup for north alignment
         x1, y1, w1, h1 = (0, 0, image_width, overlap_y)
@@ -115,7 +112,8 @@ def run_alignment_task(task):
         
         x2, y2, w2, h2 = (0, (image_height-overlap_y), image_width, overlap_y)
         roi_image_2 = image_2[y2:y2+h2, x2:x2+w2]
-        
+
+        print(f"Proceesing {task_type} alignment for ({image_1_path}, {image_2_path})")
         return detect_and_match(roi_image_1, roi_image_2, x1, y1, x2, y2)
 
     elif task_type == 'west':
@@ -126,6 +124,7 @@ def run_alignment_task(task):
         x2, y2, w2, h2 = ((image_width-overlap_x), 0, overlap_x, image_height)
         roi_image_2 = image_2[y2:y2+h2, x2:x2+w2]
 
+        print(f"Proceesing {task_type} alignment for ({image_1_path}, {image_2_path})")
         return detect_and_match(roi_image_1, roi_image_2, x1, y1, x2, y2)
     
     return None
@@ -204,8 +203,6 @@ class Pairwise_Alignment():
             tx, ty, num_inliers, success = result
             i, j = task['i'], task['j']
             
-            print(f"Processed {task['type']} alignment for ({i}, {j}): success={success}")
-
             if success:
                 if task['type'] == 'north':
                     self.tx_north[i, j] = tx

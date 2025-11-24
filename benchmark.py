@@ -22,7 +22,7 @@ def run_benchmark():
         'IMAGE_CHANNELS': 3,
         'OVERLAP_X': 1500,
         'OVERLAP_Y': 1500,
-        'BLEND': 'linear',
+        'BLEND': 'overlay',
     }
 
     print("Starting benchmark...")
