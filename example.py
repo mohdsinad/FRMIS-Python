@@ -3,8 +3,8 @@ import os
 from frmis_stitching.stitch import FRMIS
 
 def run_benchmark():
-    dataset_dir = "data/stitch-sardana-labs-20x-5x5"
-    output_path = "data/mosaic-sardana-labs-20x-5x5.png"
+    dataset_dir = "data\\stitch-sardana-labs-20x-5x5"
+    output_path = "data\\mosaic-sardana-labs-20x-5x5.png"
     
     # Ensure dataset exists
     if not os.path.exists(dataset_dir):
