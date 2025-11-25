@@ -189,8 +189,7 @@ class Pairwise_Alignment():
 
         # Execute tasks in parallel
         # Use number of CPU cores for pool size
-        # num_processes = multiprocessing.cpu_count()
-        num_processes = 8
+        num_processes = multiprocessing.cpu_count()
         print(f"Starting pairwise alignment with {num_processes} processes...")
         
         with multiprocessing.Pool(processes=num_processes) as pool:
