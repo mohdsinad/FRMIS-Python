@@ -1,5 +1,6 @@
 import time
 import argparse
+import multiprocessing as mp
 from frmis_stitching.stitch import FRMIS
 
 def main():
@@ -48,4 +49,9 @@ def main():
     print("=======================")
 
 if __name__ == "__main__":
+    try:
+        mp.set_start_method('spawn', force=True)
+    except RuntimeError:
+        pass
+    
     main()
