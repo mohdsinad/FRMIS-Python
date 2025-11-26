@@ -19,6 +19,7 @@ import os
 import cv2
 import time
 import numpy as np
+from pathlib import Path
 
 from natsort import natsorted
 from frmis_stitching.pairwise_alignment import Pairwise_Alignment
@@ -61,8 +62,8 @@ class FRMIS():
                 - OVERLAP_Y: Expected vertical overlap between images in pixels
                 - BLEND: Blending method for final assembly ('overlay', 'linear', etc.)
         """
-        self.dataset_dir = args['DATASET_DIR']
-        self.output_path = args['OUTPUT_PATH']
+        self.dataset_dir = Path(args['DATASET_DIR'])
+        self.output_path = Path(args['OUTPUT_PATH'])
         self.grid_height = args['MOSAIC_HEIGHT']
         self.grid_width = args['MOSAIC_WIDTH']
         self.image_height = args['IMAGE_HEIGHT']
